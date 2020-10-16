@@ -17,7 +17,7 @@ const Question = ({
   // =============================================================================
 
   const [comments, set_comments] = useState([]);
-  const [newComment, set_new_comment] = useState({});
+  const [newComment, set_new_comment] = useState({ name: "", body: "" });
 
   // =============================================================================
   // functions
@@ -32,12 +32,14 @@ const Question = ({
 
   const postComment = () => {
     set_comments([...comments, newComment]);
+    set_new_comment({ name: "", body: "" });
   };
+  console.log(newComment);
   // =============================================================================
   // return component
   // =============================================================================
   return (
-    <div>
+    <div className="Question-Card">
       <h3>{name}</h3>
       <p>
         <b>category: </b>
@@ -60,6 +62,7 @@ const Question = ({
           return set_new_comment({ ...newComment, name: e.target.value });
         }}
         placeholder="your name"
+        value={newComment.name}
       />
       <input
         className="Comment-body-input"
@@ -67,6 +70,7 @@ const Question = ({
           return set_new_comment({ ...newComment, body: e.target.value });
         }}
         placeholder="insert comment here"
+        value={newComment.body}
       />
       <button onClick={postComment}> Post </button>
     </div>

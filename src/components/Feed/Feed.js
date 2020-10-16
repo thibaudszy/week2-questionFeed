@@ -3,7 +3,7 @@ import Question from "../Question/Question";
 import QuestionForm from "../QuestionForm/QuestionForm";
 import "./Feed.scss";
 
-export default function Scoreboard() {
+export default function Feed() {
   // =============================================================================
   // state declaration
   // =============================================================================
@@ -63,15 +63,16 @@ export default function Scoreboard() {
   };
   // ---------------------------------------------------------------------------
   const incrementUpVotes = (id) => {
-    let newUpVotes = 0;
-    questions.forEach((question) => {
-      if (question.id === id) {
-        console.log("upVotes", question.upVotes);
-        newUpVotes = question.upVotes + 1;
-      }
-    });
+    // let newUpVotes = 0;
+    // questions.forEach((question) => {
+    //   if (question.id === id) {
+    //     console.log("upVotes", question.upVotes);
+    //     newUpVotes = question.upVotes + 1;
+    //   }
+    // });
+    const questionToUpVote = questions.find((question) => question.id === id);
 
-    modifyUpVotes(id, newUpVotes);
+    modifyUpVotes(id, questionToUpVote.upvotes + 1);
   };
   // ---------------------------------------------------------------------------
   const resolve = (id) => {
@@ -90,23 +91,14 @@ export default function Scoreboard() {
   return (
     <div className="Feed-flex-container">
       <div className="Feed">
-        {sortedQuestions.map(
-          ({ id, name, description, category, upVotes, resolved }) => (
-            <div className="Question-Card">
-              <Question
-                key={id}
-                id={id}
-                name={name}
-                description={description}
-                category={category}
-                upVotes={upVotes}
-                resolved={resolved}
-                incrementUpVotes={incrementUpVotes}
-                resolve={resolve}
-              />
-            </div>
-          )
-        )}
+        {sortedQuestions.map((question) => (
+          <Question
+            key={question.id}
+            incrementUpVotes={incrementUpVotes}
+            resolve={resolve}
+            {...question}
+          />
+        ))}
       </div>
       <QuestionForm addQuestion={addQuestion} />
     </div>
