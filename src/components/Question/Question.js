@@ -15,7 +15,7 @@ const Question = ({
   const [comments, set_comments] = useState([]);
   const [newComment, set_new_comment] = useState({});
 
-  const { commentName, body } = newComment;
+  // const { commentName, body } = newComment;
   const onClickIncrement = () => {
     incrementUpVotes(id);
   };

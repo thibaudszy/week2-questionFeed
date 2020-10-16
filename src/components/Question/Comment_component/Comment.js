@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 //import "./Comment.css";
 
 export default function Comment({ name, body }) {
