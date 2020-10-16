@@ -1,6 +1,22 @@
 .Question-form {
+  padding: 4em;
+  background-color: lightseagreen;
+  width: 400px;
+  justify-content: flex-start;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  width: 30%;
-  height: 400px;
+}
+
+.Question-form-header {
+  font-size: 1.4em;
+  color: #333;
+}
+
+.Question-form-input {
+  margin-bottom: 0.5em;
+}
+
+.Question-form-button {
+  padding: 0.3em 1em;
 }
