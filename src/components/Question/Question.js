@@ -35,7 +35,10 @@ const Question = ({
         
         comments.map((comment ) => <Comment/>) */}
       <h3>{name}</h3>
-      <p>{category}</p>
+      <p>
+        <b>category: </b>
+        {category}
+      </p>
       <p>{description}</p>
       <p>
         <b>up votes: </b>
@@ -52,7 +55,6 @@ const Question = ({
         onChange={(e) => {
           return set_new_comment({ ...newComment, name: e.target.value });
         }}
-        //value={comment.body}
         placeholder="your name"
       />
       <input
@@ -60,7 +62,6 @@ const Question = ({
         onChange={(e) => {
           return set_new_comment({ ...newComment, body: e.target.value });
         }}
-        //value={comment.body}
         placeholder="insert comment here"
       />
       <button onClick={postComment}> Post </button>
