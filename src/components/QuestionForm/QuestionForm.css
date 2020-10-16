@@ -1,7 +1,7 @@
 .Question-form {
   padding: 4em;
   background-color: lightseagreen;
-  width: 300px;
+  width: 320px;
   justify-content: flex-start;
   align-items: center;
   display: flex;
@@ -9,7 +9,7 @@
 }
 
 .Question-form-header {
-  font-size: 1.4em;
+  font-size: 1.2em;
   color: #333;
 }
 
