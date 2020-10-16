@@ -12,10 +12,17 @@ const Question = ({
   incrementUpVotes,
   resolve,
 }) => {
+  // =============================================================================
+  // state declaration
+  // =============================================================================
+
   const [comments, set_comments] = useState([]);
   const [newComment, set_new_comment] = useState({});
 
-  // const { commentName, body } = newComment;
+  // =============================================================================
+  // functions
+  // =============================================================================
+
   const onClickIncrement = () => {
     incrementUpVotes(id);
   };
@@ -26,14 +33,11 @@ const Question = ({
   const postComment = () => {
     set_comments([...comments, newComment]);
   };
-
+  // =============================================================================
+  // return component
+  // =============================================================================
   return (
     <div>
-      {/* <NameTag />
-        <Body />
-        <upVotes />
-        
-        comments.map((comment ) => <Comment/>) */}
       <h3>{name}</h3>
       <p>
         <b>category: </b>

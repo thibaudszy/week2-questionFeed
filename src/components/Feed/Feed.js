@@ -5,10 +5,9 @@ import "./Feed.scss";
 
 export default function Scoreboard() {
   // =============================================================================
-  // state declarations
+  // state declaration
   // =============================================================================
 
-  // questions state---------------------------------------------------------------------------
   const [questions, set_questions] = useState([
     {
       id: 1,
@@ -35,7 +34,11 @@ export default function Scoreboard() {
       resolved: false,
     },
   ]);
+  // =============================================================================
+  // functions
+  // =============================================================================
 
+  // ---------------------------------------------------------------------------
   const addQuestion = (name, description, category) => {
     console.log("Adding data: name, description, category");
     const newQuestion = {
@@ -51,14 +54,14 @@ export default function Scoreboard() {
 
     set_questions(questionObject);
   };
-
+  // ---------------------------------------------------------------------------
   const modifyUpVotes = (id, newupVotes) => {
     const newQuestions = [...questions].map((question) =>
       question.id === id ? { ...question, upVotes: newupVotes } : question
     );
     set_questions(newQuestions);
   };
-
+  // ---------------------------------------------------------------------------
   const incrementUpVotes = (id) => {
     let newUpVotes = 0;
     questions.forEach((question) => {
@@ -70,11 +73,11 @@ export default function Scoreboard() {
 
     modifyUpVotes(id, newUpVotes);
   };
-
+  // ---------------------------------------------------------------------------
   const resolve = (id) => {
     modifyUpVotes(id, 0);
   };
-  //   // Sortiong functions---------------------------------------------------------------------------
+  //---------------------------------------------------------------------------
   function compare_upVotes(a, b) {
     return b.upVotes - a.upVotes;
   }
